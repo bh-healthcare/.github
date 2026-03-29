@@ -52,7 +52,7 @@ All projects are developed with the goal of reducing barriers for small and mid-
 - **bh-fastapi-audit**  
   A FastAPI middleware implementation that emits audit events conforming to the bh-audit-schema standard.
 
-- **bh-audit-logger**
+- **bh-audit-logger**  
   Cloud-agnostic Python utilities for emitting privacy-preserving audit events for behavioral healthcare systems.
 
 - **bh-data-lake-reference**  
