@@ -10,8 +10,9 @@ While designed with behavioral healthcare as the primary use case, these standar
 
 Projects in this organization focus on:
 
-- Standardized audit event schemas for regulated healthcare systems
+- Standardized, versioned audit event schemas for regulated healthcare systems, including AI agent attribution
 - PHI-safe, compliance-aligned audit logging primitives
+- Attribution-enforcing emission for MCP servers and other agent-mediated workflows
 - Clinical safety signal detection for unstructured text
 - Reference architectures for secure data storage, retention, and access review
 - Engineering mappings to common healthcare compliance control objectives
@@ -48,10 +49,10 @@ All projects are developed with the goal of reducing barriers for small and mid-
 ### Audit Infrastructure
 
 - **[bh-audit-schema](https://github.com/bh-healthcare/bh-audit-schema)**
-  Canonical audit event schema for behavioral healthcare systems, with HIPAA/SOC 2/42 CFR Part 2 compliance mappings.
+  Canonical, versioned audit event schema for behavioral healthcare systems. v2.0 adds AI agent attribution and a human-agent delegation chain, with HIPAA/SOC 2/42 CFR Part 2 compliance mappings.
 
 - **[bh-audit-logger](https://github.com/bh-healthcare/bh-audit-logger)**
-  Cloud and framework-agnostic Python library for emitting privacy-preserving audit events conforming to the bh-audit-schema standard. Zero runtime dependencies.
+  Cloud and framework-agnostic Python library for emitting privacy-preserving audit events conforming to bh-audit-schema. Zero runtime dependencies.
 
 - **[bh-fastapi-audit](https://github.com/bh-healthcare/bh-fastapi-audit)**
   FastAPI middleware that automatically emits audit events for every HTTP request with HIPAA-safe defaults.
@@ -62,10 +63,18 @@ All projects are developed with the goal of reducing barriers for small and mid-
 - **[bh-fastapi-examples](https://github.com/bh-healthcare/bh-fastapi-examples)**
   Minimal applications demonstrating bh-fastapi-audit with production-hardened, HIPAA-safe defaults.
 
+### Agent Attribution
+
+- **[bh-mcp-attribution](https://github.com/bh-healthcare/bh-mcp-attribution)**
+  Attribution-enforcing audit emission for MCP servers and gateways. Reference implementation of the enforced emission tier from bh-audit-schema v2. Prototype; not a production control.
+
 ### Clinical Tooling
 
 - **[bh-sentinel](https://github.com/bh-healthcare/bh-sentinel)**
   Multi-layer NLP pipeline for clinical safety signal detection in behavioral health text. Detects self-harm/suicidal ideation, harm to others, medication non-adherence, substance use, clinical deterioration, and protective factors. Designed for HIPAA-safe, stateless deployment with clinician-in-the-loop review. FDA CDS-aligned.
+
+- **[bh-sentinel-examples](https://github.com/bh-healthcare/bh-sentinel-examples)**
+  Reproducible local integrations for bh-sentinel (core and ml). Hands-on companion for running Layer 1 pattern matching and Layer 2 zero-shot detection on checked-in corpora.
 
 ### Reference Architecture
 
@@ -74,4 +83,4 @@ All projects are developed with the goal of reducing barriers for small and mid-
 
 ## Status
 
-Projects are actively developed and used in real-world behavioral healthcare systems. All repositories are open-source and welcome engineering-focused contributions.
+Projects are actively developed and used in real-world behavioral healthcare systems. Public repositories are open-source and welcome engineering-focused contributions.
